@@ -19,10 +19,10 @@ export LANG=en_US.UTF-8
 #DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_OSH_DAYS=13
+#export UPDATE_OSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -60,9 +60,9 @@ completions=(
 # Custom aliases may be added to ~/.oh-my-bash/custom/aliases/
 # Example format: aliases=(vagrant composer git-avh)
 # Add wisely, as too many aliases slow down shell startup.
-aliases=(
-  general
-)
+#aliases=(
+#  general
+##)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
@@ -78,17 +78,19 @@ plugins=(
 source $OSH/oh-my-bash.sh
 
 # User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
+ export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -102,7 +104,19 @@ source $OSH/oh-my-bash.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias bashconfig="mate ~/.bashrc"
-# alias ohmybash="mate ~/.oh-my-bash"
+ alias bashconfig="mate ~/.bashrc"
+ alias ohmybash="mate ~/.oh-my-bash"
+
+ function _update_ps1() {
+    export PS1="$(~/powerline-shell.py $?)"
+ }
+
+# export PROMPT_COMMAND="_update_ps1"
+
+#prompt_context() {
+#  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+#    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+#  fi
+#}
 
 #eval "$(starship init bash)"

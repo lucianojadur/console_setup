@@ -1,4 +1,4 @@
- All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
+" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
 " settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
 " will be overwritten everytime an upgrade of the vim packages is performed.
@@ -55,8 +55,11 @@ Plugin 'vim-syntastic/syntastic'    "python syntax plugin
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()            " required
+
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
@@ -83,47 +86,37 @@ filetype plugin indent on
 set nolist
 set wrap
 
-set textwidth=80
-set shiftwidth=4
-set tabstop=4
-set expandtab
+"""" Text indnting/spacing 
+set cindent   
+set autoindent
+set textwidth=80    
+set shiftwidth=4     "Use two spaces
+set tabstop=4        "Tabs use two spaces
+"set expandtab       "Tabs convert to spaces
 
 
 let python_highlight_all=1
-syntax on
 
-"Turns on sintax highlighting
-syntax on
-
-"Status bar
-set laststatus=2
-
-"Display options
-set showcmd
-set showmode
-
+"""" Interface
+set laststatus=2	" Status bar
+set showcmd			" Command line
+set noshowmode
+set title 			" Set the window’s title with file currently being edited
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
 
-" Show line numbers
-set number
 
-" Encoding
-set encoding=utf-8
+"""" Search & display
+set number			" Show line numbers
+set encoding=utf-8 	" Encoding
+set hlsearch		" Highlight matching search patterns
+set incsearch 		" Enable incremental search
+set ignorecase		" Include matching uppercase words with lowercase search term
+set smartcase 		"Include only uppercase words with uppercase search term
+set cursorline
 
-" Highlight matching search patterns
-set hlsearch
-
-" Enable incremental search
-set incsearch
-
-" Include matching uppercase words with lowercase search term
-set ignorecase
-
-" Include only uppercase words with uppercase search term
-set smartcase
 
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -141,17 +134,6 @@ inoremap {;<CR> {<CR>};<ESC>O
 " according to the detected filetype.
 filetype plugin indent on
 
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
-"set hidden	    	" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
-
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
@@ -161,12 +143,37 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'vim-airline/vim-airline'
-Plug 'vim-syntastic/syntastic'    "python syntax plugin
+Plug 'morhetz/gruvbox'
+Plug 'vim-syntastic/syntastic'    " python syntax plugin
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
+Plug 'itchyny/lightline.vim'			"lightline (command line) setting
+Plug 'bluz71/vim-nightfly-guicolors'	"nightfly color scheme
 call plug#end()
+
+
+
+
+"""""""""""""""""
+""""COLOR SETTINGS
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+highlight Normal ctermbg=NONE
+
+"set termguicolors |
+"colorscheme nightfly	"NIGHTFLY THEME
+"let g:lightline = {'colorscheme': 'nightfly'}
+"let g:nightflyCursorColor = 1
+"let nightflyUnderlineMatchParen = 1
+
+hi Comment cterm=italic
+
+
+set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+
 
 so ~/.vim/plugins.vim
