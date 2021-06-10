@@ -102,9 +102,6 @@ set laststatus=2	" Status bar
 set showcmd			" Command line
 set noshowmode
 set title 			" Set the window’s title with file currently being edited
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
 set background=dark
 
 
