@@ -105,6 +105,8 @@ set title 				" Set the window’s title with file currently being edited
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
+
+set title 			" Set the window’s title with file currently being edited
 set background=dark
 
 
@@ -114,7 +116,7 @@ set encoding=utf-8 		" Encoding
 set hlsearch			" Highlight matching search patterns
 set incsearch 			" Enable incremental search
 set ignorecase			" Include matching uppercase words with lowercase search term
-set smartcase 			"Include only uppercase words with uppercase search term
+set smartcase 			" Include only uppercase words with uppercase search term
 set cursorline
 
 
