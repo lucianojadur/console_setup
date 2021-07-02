@@ -86,22 +86,22 @@ filetype plugin indent on
 set nolist
 set wrap
 
-"""" Text indnting/spacing 
+"""" Text indenting/spacing 
 set cindent   
 set autoindent
 set textwidth=80    
-set shiftwidth=4     "Use two spaces
-set tabstop=4        "Tabs use two spaces
-"set expandtab       "Tabs convert to spaces
+set shiftwidth=4 	    " Use two spaces
+set tabstop=4       	" Tabs use two spaces
+"set expandtab      	" Tabs convert to spaces
 
 
 let python_highlight_all=1
 
 """" Interface
-set laststatus=2	" Status bar
-set showcmd			" Command line
+set laststatus=2		" Status bar
+set showcmd				" Command line
 set noshowmode
-set title 			" Set the window’s title with file currently being edited
+set title 				" Set the window’s title with file currently being edited
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -109,12 +109,12 @@ set background=dark
 
 
 """" Search & display
-set number			" Show line numbers
-set encoding=utf-8 	" Encoding
-set hlsearch		" Highlight matching search patterns
-set incsearch 		" Enable incremental search
-set ignorecase		" Include matching uppercase words with lowercase search term
-set smartcase 		"Include only uppercase words with uppercase search term
+set number				" Show line numbers
+set encoding=utf-8 		" Encoding
+set hlsearch			" Highlight matching search patterns
+set incsearch 			" Enable incremental search
+set ignorecase			" Include matching uppercase words with lowercase search term
+set smartcase 			"Include only uppercase words with uppercase search term
 set cursorline
 
 
